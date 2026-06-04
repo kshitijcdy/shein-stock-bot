@@ -4,8 +4,8 @@ import os
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHAT_ID = os.getenv("CHAT_ID")
 
-print("BOT_TOKEN =", BOT_TOKEN)
-print("CHAT_ID =", CHAT_ID)
+print("BOT_TOKEN exists:", BOT_TOKEN is not None)
+print("CHAT_ID:", CHAT_ID)
 
 url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
 
@@ -17,4 +17,5 @@ response = requests.post(
     }
 )
 
+print(response.status_code)
 print(response.text)
